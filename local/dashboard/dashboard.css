@@ -1,0 +1,80 @@
+/* Font-face configuration */
+@font-face {
+    font-family: 'yekan-r';
+    src: url('dep/font/yekanr.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'yekan-b';
+    src: url('dep/font/yekanb.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'yekan-l';
+    src: url('dep/font/yekanl.ttf');
+    font-weight: lighter;
+}
+
+.font-bold{
+    font-family: yekan-b;
+}
+
+.font-light{
+    font-family: yekan-l;
+}
+/* Font-face configuration */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#progress-a.progress-bar{background: #FF3D00;}
+#progress-b.progress-bar{background: #FFCC00;}
+#progress-c.progress-bar{background: #0061CF;}
+#progress-d.progress-bar{background: #009A05;}
+
+.full-height{
+    height: 100%;
+}
+
+h1{
+    text-align: right;
+}
+
+#user{
+    background-color: #FFFFFF;
+}
+
+#user-info{
+    margin-top: 25px;
+}
+
+#user-info-avatar{
+    margin: 0 20px 0 0;
+}
+
+#user-info-detail{
+    margin: 20px 5px 0 0;
+}
+
+#user-info-detail-more{
+    font-size: 9px;
+    color: #013480;
+    text-align: right;
+}
+
+#user-info-dropdown{
+    margin: 20px -45px 0 0;
+}
+
+
+#user-info-dropdown-button{
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #D8EAFF;
+}
