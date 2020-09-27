@@ -15,8 +15,8 @@ def resume_validator(value):
 class Student(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     course = models.ManyToManyField(Course)
-    profile = models.ImageField(null=True,upload_to='files/student_profile')
-    resume = models.FileField(null=True,upload_to='files/student_resume',validators=[resume_validator])
+    profile = models.ImageField(null=True,upload_to='student_profile/')
+    resume = models.FileField(null=True,upload_to='student_resume/',validators=[resume_validator])
     last_course = models.CharField(max_length=128)
     created_at = models.DateField(auto_now_add=True)
     last_seen = models.DateTimeField(auto_now=True,null=True,blank=True)

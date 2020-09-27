@@ -10,4 +10,4 @@ class Course(models.Model):
 
 class Session(models.Model):
     description = models.TextField()
-    file = models.FileField(null=False,blank=False)
+    file = models.FileField(upload_to="course_files/",null=False,blank=False)
