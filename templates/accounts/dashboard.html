@@ -4,7 +4,7 @@
     <head>
         <!--Css-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">        
-        <link rel="stylesheet" href="dashboard.css">        
+        <link rel="stylesheet" href={% static "dashboard/dashboard.css" %}>        
         <!--Css-->
 
         <!--JavaScript-->
@@ -30,7 +30,9 @@
                         </div>
                         <div id="user-info-detail" class="col-xl-6 font-bold">
                             <h1 id="user-info-detail-name" style="font-size: 14px;">
-                                امیر محمد عباسی
+                                {% if user.is_authenticated %}
+                                    {{user.first_name}} {{user.last_name}}
+                                {% endif %}
                             </h1>
                             <a href="#" style="text-decoration: none;">
                                 <h2 id="user-info-detail-more">
@@ -49,7 +51,7 @@
                     <div id="body-nav" class="row align-self-center" style="height: 80px; margin: 25px 15px 0 30px;">
                         <div id="body-nav-welcome" class="col-xl-6 align-self-center" style="height: 50px;">
                             <h1 id="body-nav-welcome-text" class="font-light align-self-center" style="font-size: 30px; color: #013480;">
-                                امیرمحمد عزیز! خوش اومدی...
+                                {{user.first_name}} عزیز! خوش اومدی...
                             </h1>
                         </div>
                         <div id="body-nav-menu" class="col-xl-5 align-self-center" style="height: 50px; margin-right: -15px;">
@@ -62,10 +64,12 @@
                                         <input type="button" class="form-control btn" style="width: 38px; height: 38px; border-color: transparent; border-radius: 12px; z-index: 0; background-color: #EBEBEB; background-image: url('dep/img/alarm.png'); background-repeat: no-repeat; background-size: 23px; background-position: center;">
                                     </div>
                                 </form>
-                                <form style="margin-right: 15px;">
-                                    <div>
-                                        <input type="button" class="form-control btn" style="width: 38px; height: 38px; border-color: transparent; border-radius: 12px; background-color: #EBEBEB; background-image: url('dep/img/contact.png'); background-repeat: no-repeat; background-size: 23px; background-position: center;">
-                                    </div>
+                                <form style="margin-right: 15px;" action="{% url "logout" %}" method="POST">
+                                {% csrf_token %}
+                                        <div>
+                                            <input type="submit" class="form-control btn" placeholder="logout" style="width: 38px; height: 38px; border-color: transparent; border-radius: 12px; background-color: #EBEBEB; background-image: url('dep/img/contact.png'); background-repeat: no-repeat; background-size: 23px; background-position: center;">
+                                        </div>
+                                    
                                 </form>
                                 <form style="margin-right: 15px;">
                                     <div>

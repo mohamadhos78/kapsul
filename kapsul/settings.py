@@ -27,6 +27,27 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# google authentication
+AUTHENTICATION_BACKENDS = (
+ 'django.contrib.auth.backends.ModelBackend',
+ 'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/accounts/dashboard'
+
+# authentication
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 # Application definition
 
@@ -39,6 +60,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # google authentication apps
+    'django.contrib.sites' ,
+    'social_app' ,
+    'allauth' ,
+    'allauth.account' ,
+    'allauth.socialaccount' ,
+    'allauth.socialaccount.providers.google' ,
 ]
 
 MIDDLEWARE = [
